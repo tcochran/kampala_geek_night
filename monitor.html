@@ -1,7 +1,6 @@
 <html ng-app="buildMonitor" >
     <head>
-        <script type="text/javascript" src="http://code.angularjs.org/1.2.2/angular.min.js"></script>
-        <script type="text/javascript" src="http://code.angularjs.org/1.2.2/angular-mocks.js"></script>
+        <script type="text/javascript" src="app/lib/angular.min.js"></script>
         <script type="text/javascript" src="app/js/app.js"></script>
 
         <style>
@@ -25,8 +24,8 @@
     </head>
 
     <body>
-        <div ng-controller='MonitorCtrl' class='container'>
-            {{ build_result }}
+        <div ng-controller='MonitorCtrl' class='container' ng-class='{succeeded: build_result.last_build_result == 0, failed: build_result.last_build_result == 1} '>
+            <!-- {{ build_result }} -->
         </div>
     </body>
 </html>
