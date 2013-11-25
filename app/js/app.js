@@ -3,10 +3,20 @@ var buildMonitor = angular.module('buildMonitor', []);
 
 buildMonitor.controller("MonitorCtrl", function($scope, buildStatusService) {
 
-    buildStatusService.status("tcochran/kampala_geek_night", function (result) {
-        var buildResult = "Build Number: " + result.last_build_number + " " + status + " in " + result.last_build_duration + " seconds";  
-        $scope.build_result = result;
-    });
+    $scope.build_name = 'tcochran/kampala_geek_night'
+
+    var refreshStatus = function() { 
+        buildStatusService.status($scope.build_name, function (result) {
+            $scope.build_result = result;
+        });
+    }
+
+    $scope.changeBuild = function() {
+        refreshStatus();
+    };
+
+    refreshStatus();
+    
 });
 
 
