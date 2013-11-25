@@ -19,5 +19,7 @@ describe('service', function() {
         buildStatusService.status("test", function(results) { 
             expect(results).toEqual({data: 'some else'});
         });
+
+        $httpBackend.flush();
     }));
 });
