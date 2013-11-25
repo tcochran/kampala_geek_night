@@ -17,7 +17,7 @@ describe('service', function() {
 
     it('should monitor travis build', inject(function(buildStatusService) {
         buildStatusService.status("test", function(results) { 
-            expect(results).toEqual({data: 'some'});
+            expect(results).toEqual({data: 'some else'});
         });
     }));
 });
