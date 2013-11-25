@@ -1,0 +1,22 @@
+{
+    "name": "kampala_geek_night",
+    "version": "0.0.0",
+    "description": "",
+    "devDependencies": {
+        "karma": "~0.8"
+    },
+    "main": "web-server.js",
+        "scripts": {
+            "test": "karma start my.conf.js --single-run"
+        },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/tcochran/kampala_geek_night.git"
+    },
+    "author": "",
+    "license": "BSD-2-Clause",
+    "bugs": {
+        "url": "https://github.com/tcochran/kampala_geek_night/issues"
+    },
+    "homepage": "https://github.com/tcochran/kampala_geek_night"
+}
