@@ -1,0 +1,31 @@
+<html ng-app="buildMonitor" >
+    <head>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
+        <script type="text/javascript" src="app/js/app.js"></script>
+
+        <style>
+            div.container {
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                left: 0px;
+                height: 100%;
+                font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            }
+
+            div.succeeded {
+                background-color: lightgreen;
+            }
+
+            div.failed {
+                background-color: salmon;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div ng-controller='MonitorCtrl' class='container'>
+            {{ build_result }}
+        </div>
+    </body>
+</html>
