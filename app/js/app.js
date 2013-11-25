@@ -1,7 +1,6 @@
 var buildMonitor = angular.module('buildMonitor', []);
 
 
-
 buildMonitor.controller("MonitorCtrl", function($scope, buildStatusService) {
 
     buildStatusService.monitor("angular/angular.js", function (result) {
@@ -9,8 +8,6 @@ buildMonitor.controller("MonitorCtrl", function($scope, buildStatusService) {
         $scope.build_result = result;
     });
 });
-
-
 
 
 buildMonitor.service("buildStatusService", function($http, $timeout) {
