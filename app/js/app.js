@@ -2,15 +2,10 @@ var app = angular.module('Geeknight', []);
 
 app.controller("HomeCtrl", function($scope, FilmsService, TravisBuildService) {
 
-    $scope.build_name = 'tcochran/kampala_geek_night';
+    TravisBuildService.monitor('tcochran/kampala_geek_night', function(result) {
+        $scope.buildStatus = result;
+    });
 
-    $scope.refreshBuild = function() {
-        TravisBuildService.status($scope.build_name).success(function(result) {
-            $scope.buildStatus = result;
-        });
-    }
-
-    $scope.refreshBuild();
 });
 
 app.service('FilmsService', function() {
@@ -26,11 +21,31 @@ app.service('FilmsService', function() {
     }
 })
 
-app.service('TravisBuildService', function($http) {
+app.service('TravisBuildService', function($http, $timeout) {
+
+    var self = this; 
+
     this.status = function(project_name) {
         var url = "https://api.travis-ci.org/repos/" + project_name +".json"
         return $http.get(url)
     }
+
+    this.monitor = function (projectName, statusChangedCallBack) {
+        var lastBuildNumber = 0;
+
+        function checkStatus() {
+            self.status(projectName).success(function(status) {
+                if (lastBuildNumber != status.last_build_number && status.last_build_status != null)
+                {
+                    lastBuildNumber = status.last_build_number;
+                    statusChangedCallBack(status);
+                }
+            });
+            $timeout(checkStatus, 10000);
+        };  
+
+        checkStatus();
+    };
 });
 
 
