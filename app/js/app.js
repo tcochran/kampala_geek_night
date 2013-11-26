@@ -3,6 +3,7 @@ var app = angular.module('Geeknight', []);
 app.controller("HomeCtrl", function($scope, FilmsService) {
     $scope.person = { name: 'kevin bacon' };
     $scope.films = FilmsService.films();
+    $scope.selectedFilm = null;
 });
 
 app.service('FilmsService', function() {
