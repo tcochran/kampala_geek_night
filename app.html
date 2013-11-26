@@ -34,12 +34,14 @@
             <div class='well' ng-controller='HomeCtrl'>
                 <h2>My first angular.js app</h2>
 
-                <label>Name</label>
-                <input type='text' ng-model='person.name'></input>
+                <label>red</label>
+                <input type='radio' value='/app/views/red.html' ng-model='color'></input>
+                <label>green</label>
+                <input type='radio' value='/app/views/green.html' ng-model='color'></input>
 
-                <div ng-controller='InnerCtrl'>
-                    <h3>your name is {{person.name}}</h3>
-                </div>
+                <div ng-include="color" ></div>
+
+
             </div>
         </div>
     </body>
