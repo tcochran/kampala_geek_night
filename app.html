@@ -36,6 +36,14 @@
                 <h2>My first angular.js app</h2>
 
                 <h3>{{buildStatus}}</h3>
+
+                <form role='Form' ng-submit='refreshBuild()' >
+                    <div class='form-group' >
+                        <label>Build Name</label>
+                        <input class='form-control' type='text' ng-model='build_name'/>
+                    </div>
+                    <input type='submit' class='btn btn-default' />
+                </form>
             </div>
         </div>
     </body>

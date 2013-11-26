@@ -1,9 +1,16 @@
 var app = angular.module('Geeknight', []);
 
 app.controller("HomeCtrl", function($scope, FilmsService, TravisBuildService) {
-    TravisBuildService.status('tcochran/kampala_geek_night').success(function(result) {
-        $scope.buildStatus = result
-    });
+
+    $scope.build_name = 'tcochran/kampala_geek_night';
+
+    $scope.refreshBuild = function() {
+        TravisBuildService.status($scope.build_name).success(function(result) {
+            $scope.buildStatus = result;
+        });
+    }
+
+    $scope.refreshBuild();
 });
 
 app.service('FilmsService', function() {
