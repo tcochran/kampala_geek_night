@@ -1,4 +1,4 @@
-<html>
+<html ng-app>
     <head>
         <script type="text/javascript" src="app/lib/angular.min.js"></script>
         <script type="text/javascript" src="app/js/app.js"></script>
@@ -33,6 +33,11 @@
         <div class='container'>
             <div class='well'>
                 <h2>My first angular.js app</h2>
+
+                <label>Name</label>
+                <input type='text' ng-model='name'></input>
+
+                <h3>your name is {{name}}</h3>
             </div>
         </div>
     </body>
