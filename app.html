@@ -33,7 +33,9 @@
         <div class='container'>
             <div class='well' ng-controller='HomeCtrl'>
                 <h2>My first angular.js app</h2>
-
+                <ul>
+                    <li ng-repeat="film in films | orderBy:['genre', 'name']">{{film.name}} - {{film.genre}}</li>
+                </ul>
             </div>
         </div>
     </body>
