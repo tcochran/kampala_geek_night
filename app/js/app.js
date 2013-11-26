@@ -1,9 +1,7 @@
 var app = angular.module('Geeknight', []);
 
-app.controller("HomeCtrl", function($scope, FilmsService) {
-    $scope.person = { name: 'kevin bacon' };
-    $scope.films = FilmsService.films();
-    $scope.selectedFilm = null;
+app.controller("HomeCtrl", function($scope, FilmsService, TravisBuildService) {
+    $scope.buildStatus = TravisBuildService.status('tcochran/kampala_geek_night');
 });
 
 app.service('FilmsService', function() {
@@ -19,5 +17,13 @@ app.service('FilmsService', function() {
         ];
     }
 })
+
+app.service('TravisBuildService', function($http) {
+    this.status = function(project_name) {
+        var url = "https://api.travis-ci.org/repos/" + project_name +".json"
+        return $http.get(url)
+    }
+});
+
 
 

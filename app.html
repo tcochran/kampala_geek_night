@@ -33,12 +33,9 @@
         <div class='container'>
             <div class='well' ng-controller='HomeCtrl'>
                 <h2>My first angular.js app</h2>
-                <button class='btn btn-default' ng-repeat='film in films' ng-click='selectedFilm=film' >{{film.name}}</button>
 
-                <h3>{{selectedFilm.name}}</h3>
+                <h3>{{buildStatus}}</h3>
             </div>
-
-
         </div>
     </body>
 </html>
