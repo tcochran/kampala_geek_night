@@ -14,7 +14,7 @@ describe('travis service', function() {
 
     it('should get build status from travis', inject(function(TravisBuildService) {
         TravisBuildService.status('test_project').success(function(status) {
-            expect(status).toEqual({some: 'fail'});
+            expect(status).toEqual({some: 'data'});
         })
 
         $httpBackend.flush();
