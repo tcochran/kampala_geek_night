@@ -18,7 +18,6 @@ describe('travis service', function() {
         })
 
         $httpBackend.flush();
-
     }));
 
     afterEach(function() {

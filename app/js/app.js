@@ -2,13 +2,11 @@ var app = angular.module('Geeknight', []);
 
 app.controller("HomeCtrl", function($scope, FilmsService, TravisBuildService) {
     TravisBuildService.status('tcochran/kampala_geek_night').success(function(result) {
-        console.log(result);
         $scope.buildStatus = result
     });
 });
 
 app.service('FilmsService', function() {
-
     this.films = function() {
         return [
             {name: 'top gun', genre: 'action', takings: 10000},

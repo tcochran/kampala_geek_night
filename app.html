@@ -30,8 +30,8 @@
     </head>
 
     <body>
-        <div class='container'>
-            <div class='well' ng-controller='HomeCtrl'>
+        <div class='container' ng-class="{succeeded: buildStatus.last_build_result == 0, failed: buildStatus.last_build_result == 1}" ng-controller='HomeCtrl'>
+            <div class='well'>
                 <h2>My first angular.js app</h2>
 
                 <h3>{{buildStatus}}</h3>
